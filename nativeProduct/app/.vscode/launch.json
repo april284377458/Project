@@ -5,16 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Main Process",
+            "name": "Debug",
             "type": "node",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-            "windows": {
-              "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-            },
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", 
             "args" : ["."],
             "outputCapture": "std"
-        }
+        },
+        {
+            "name": "build-dev",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/webpack", 
+            "args" : ["build/webpack.config.js","env production"],
+            "outputCapture": "std"
+        } 
     ]
 }

@@ -5,8 +5,7 @@
   "main": "./dist/main/app.js",
   "scripts": {
     "start": "electron .",
-    "build": "webpack --config build/webpack.config.js --env production main renderer",
-    "build-dev": "webpack --config build/webpack.config.js --env development main renderer",
+    "build-dev": "webpack --config build/webpack.config.js --env development main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "leeo",
@@ -19,6 +18,8 @@
     "demo"
   ],
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "clean-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^5.0.0",
     "css-loader": "^2.1.0",

@@ -12,14 +12,6 @@
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", 
             "args" : ["."],
             "outputCapture": "std"
-        },
-        {
-            "name": "build-dev",
-            "type": "node",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/webpack.cmd", 
-            "args" : ["env production", "main"], 
         } 
     ]
 }

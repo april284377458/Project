@@ -18,9 +18,8 @@
             "type": "node",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/webpack", 
-            "args" : ["build/webpack.config.js","env production"],
-            "outputCapture": "std"
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/webpack.cmd", 
+            "args" : ["env production", "main"], 
         } 
     ]
 }

@@ -2,16 +2,13 @@ const merge = require("webpack-merge");
 const webpack = require("webpack"); 
 const renderer = require("renderer.json"); 
 const main = require("main.json"); 
-const path = require("path"); 
-
-
-const lib = Symbol("node_modules");
+const path = require("path");    
 
 module.exports = function (env, argv) {  
     const components =  argv._;
 
     const base = {
-      context : path.resolve(__dirname, "../page/src/renderer/main"),
+      context : path.resolve(__dirname, "../src/renderer/main"),
       mode: env,
       node: {
         __dirname: false,

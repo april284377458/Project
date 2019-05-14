@@ -2,7 +2,7 @@
   "name": "app",
   "version": "1.0.0",
   "description": "",
-  "main": "./page/dist/main/app.js",
+  "main": "./dist/main/app.js",
   "scripts": {
     "start": "electron .",
     "build": "webpack --config build/webpack.config.js --env production main renderer",

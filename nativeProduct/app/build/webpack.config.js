@@ -1,8 +1,8 @@
 const merge = require("webpack-merge");
 const webpack = require("webpack");  
-const erenderer = require("./renderer.config.js"); 
+const renderer = require("./renderer.config.js"); 
 const main  = require("./main.config.js"); 
-const predefine = { main  , erenderer };
+const predefine = { main  , renderer };
 const path = require("path");  
 
 module.exports = function (env, argv) {   
@@ -18,7 +18,6 @@ module.exports = function (env, argv) {
         ]
     };     
     if(Reflect.has(predefine,component)){   
-       let a = merge(base, predefine[component]);    
-       return a;
+      return  merge(base, predefine[component]);     
     }   
   }

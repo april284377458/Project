@@ -2,10 +2,10 @@
   "name": "app",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/main/app.js",
+  "main": "./dist/main/bundle-app.js",
   "scripts": {
     "start": "electron .",
-    "build-dev": "webpack --config build/webpack.config.js --env development main",
+    "build-dev": "webpack --config build/webpack.config.js --env.dev=development --env.entry=main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "leeo",

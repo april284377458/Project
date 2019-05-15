@@ -1,21 +1,30 @@
 
-// const path = require("path"); 
-// module.exports = { 
-//     context : path.resolve(__dirname, "../src/main"),
-//     entry : {
-//         "main" : "./app.js"
-//     },
-//     output: {
-//         path: "../../dist/main/",
-//         filename: "bundle-[name].js"
-//     },
-//     module: {
-//         rules: [{
-//                 test: /(\.jsx|\.js)$/,
-//                 use: {
-//                     loader: "babel-loader"
-//                 } 
-//             }
-//         ],  
-//     } 
-// }
+const path = require("path");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+ 
+module.exports = {
+    target: "electron-main",
+    context: path.resolve(__dirname, "../src/main"),
+    entry: {
+        app: "./app.js"
+    },
+    output: {
+        path: __dirname + "/../dist/main",
+        filename: "[name]-bundle.js"
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: {
+                    loader: "source-map-loader"
+                }
+            }
+        ],
+    },
+    plugins: [
+        new CleanWebpackPlugin(["../dist/main"],{
+            "root": path.resolve(__dirname, '../dist/'), 
+        }),
+    ]
+}

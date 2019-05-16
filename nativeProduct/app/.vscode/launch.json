@@ -5,13 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug",
+            "name": "DebugMain",
             "type": "node",
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", 
-            "args" : ["."],
-            "outputCapture": "std"
-        } 
+            "args" : ["."] 
+        },
+        {
+            "name": "DebugRenderer",
+            "type": "chrome",
+            "request": "attach",
+            "port" : 7878,  
+            "address": "127.0.0.1",
+            "webRoot": "${workspaceFolder}",
+        },  
     ]
 }

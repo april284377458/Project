@@ -23,7 +23,7 @@ module.exports = function (env, argv) {
           function (context, request, callback) { 
             for (const regex of externals) {
                 if (regex.test(request)) { 
-                  return callback(null, `commonjs2 ${request}`);  
+                  return callback(null, `commonjs ${request}`);  
                 }
             }
             callback();

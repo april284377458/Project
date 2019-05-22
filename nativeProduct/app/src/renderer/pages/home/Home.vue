@@ -4,14 +4,32 @@
     display: flex; 
     background-color: rgba(197, 25, 25);  
 } 
+.tab{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    line-height: 40px; 
+}
+.tab-item{
+  flex: 1;
+  text-align: center;
+}
 </style>
 
 <template>
-  <div>
-    <div :class="prefix">
-        大豆豆豆豆豆豆豆豆豆豆豆豆豆豆豆豆{{count}}  
-    </div>
-    <input type="button" @click="changeClick" value="点我呀"/>  
+  <div> 
+    <div class="tab"> 
+      <div class="tab-item">
+        <router-link to="/a">商品</router-link>
+      </div> 
+      <div class="tab-item">
+        <router-link to="/b">评论</router-link>
+      </div> 
+      <div class="tab-item">
+        <router-link to="/c">商家</router-link>
+      </div> 
+    </div> 
+    <router-view></router-view> 
   </div>
 </template>
 <script>  

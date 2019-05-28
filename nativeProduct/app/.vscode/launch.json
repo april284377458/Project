@@ -10,7 +10,8 @@
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", 
-            "args" : ["."] 
+            "args" : ["."], 
+            "outputCapture": "std",
         },
         {
             "name": "DebugRenderer",

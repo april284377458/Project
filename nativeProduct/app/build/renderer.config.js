@@ -13,8 +13,9 @@ module.exports = function(env){
             home: "./pages/home/index.js", 
         },
         output: {
-            path: __dirname + "/../dist/renderer",
-            filename: "[name]-bundle.js"
+            path: __dirname + "/../dist/renderer/pages",
+            filename: "[name]-bundle.js",
+            chunkFilename: '[name].chunk.js'
         },
         module: {
             rules: [
@@ -74,7 +75,7 @@ module.exports = function(env){
                 "*.json",  
                 {
                     from: `../../node_modules/vue/dist/vue.runtime${env.dev === "development" ? "" : ".min"}.js`,
-                    to: `./node_modules/vue/index.js`
+                    to: `../node_modules/vue/index.js`
                 }, 
             ]),
         ]

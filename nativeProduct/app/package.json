@@ -5,6 +5,7 @@
   "main": "./dist/main/app-bundle.js",
   "scripts": {
     "start": "electron .",
+    "build-dev-server": "webpack --config build/webpack.config.js --env.dev=development --env.entry=server",
     "build-dev-main": "webpack --config build/webpack.config.js --env.dev=development --env.entry=main",
     "build-dev-renderer": "webpack --config build/webpack.config.js --env.dev=development --env.entry=renderer",
     "build-dev": "webpack --config build/webpack.config.js --env.dev=development --env.entry=main && webpack --config build/webpack.config.js --env.dev=development --env.entry=renderer",

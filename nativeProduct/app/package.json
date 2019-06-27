@@ -45,6 +45,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "externals-dependencies": "^1.0.4",
     "vue": "^2.6.10"
   }
 }

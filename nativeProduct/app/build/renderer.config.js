@@ -11,6 +11,7 @@ module.exports = function(env){
         context: path.resolve(__dirname, "../src/renderer"),
         entry: {
             home: "./pages/home/index.js", 
+            login: "./pages/login/index.js", 
         },
         output: {
             path: __dirname + "/../dist/renderer/pages",
@@ -70,6 +71,12 @@ module.exports = function(env){
                 chunks: ["home"],
                 template: "./pages/template.html",
                 filename: "./home.html"
+            }), 
+            new htmlWebpackPlugin({ 
+                inject: 'body', 
+                chunks: ["login"],
+                template: "./pages/template.html",
+                filename: "./login.html"
             }), 
             new CopyWebpackPlugin([
                 "*.json",  

@@ -7,11 +7,10 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const fs = require('fs'); 
 const index = require('./routes/index')
-const users = require('./routes/users')
-
+const users = require('./routes/users') 
+const koajwt = require('koa-jwt');
 // error handler
-onerror(app)
-
+onerror(app) 
 // middlewares
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
@@ -30,13 +29,8 @@ app.use(views(__dirname + '/views', {
 //   ctx.response.body = '<a href="/">Index Page</a>';
 // };
 // drouter.get('/redirect', redirect) 
-// app.use(drouter.routes());
-
-const main = async function (ctx, next) {
-  ctx.response.type = 'text'; 
-  throw new Error("----");
-}; 
-app.use(main);
+// app.use(drouter.routes()); 
+// app.use(main);
 
 
 // logger
@@ -55,5 +49,24 @@ app.use(users.routes(), users.allowedMethods())
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
+
+// 错误处理
+app.use((ctx, next) => {
+  return next().catch((err) => {
+      if(err.status === 401){
+          ctx.status = 401;
+          ctx.body = 'Protected resource, use Authorization header to get access\n';
+      }else{
+          throw err;
+      }
+  })
+})
+
+app.use(koajwt({
+  secret: 'my_token'
+}).unless({
+  path: [/\/users\/login/]
+}));
+
 
 module.exports = app

@@ -1,6 +1,5 @@
 const merge = require("webpack-merge");
 const webpack = require("webpack");  
-const path = require("path");  
 
 
 //外部公用模块进行排除 直接进行文件拷贝
@@ -13,8 +12,7 @@ const externals = [
 module.exports = function (env, argv) {   
     const renderer = require("./renderer.config.js")(env); 
     const main  = require("./main.config.js")(env);  
-    const server  = require("./server.config.js")(env);
-    const predefine = { main  , renderer ,server};
+    const predefine = { main  , renderer };
 
     const component =  env.entry;  
     const base = { 

@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "server",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/src/server/bin/www",  
+            "outputCapture": "std",
+        },
+        {
             "name": "DebugMain",
             "type": "node",
             "request": "launch",
